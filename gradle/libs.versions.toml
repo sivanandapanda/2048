@@ -4,7 +4,9 @@
 [versions]
 libs-junit-jupiter = "5.10.2"
 libs-jupiter-launcher = "1.10.2"
+libs-jackson-kotlin = "2.19.2"
 
 [libraries]
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "libs-junit-jupiter" }
 junit-jupiter-launcher = { module = "org.junit.platform:junit-platform-launcher", version = "libs-jupiter-launcher" }
+jackson-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "libs-jackson-kotlin" }

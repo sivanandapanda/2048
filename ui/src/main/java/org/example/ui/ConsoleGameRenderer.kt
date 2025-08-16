@@ -30,13 +30,13 @@ class ConsoleGameRenderer(
 
     override fun showWelcomeMessage() {
         println("Welcome to 2048!")
-        println("Use WASD keys to move: W=Up, A=Left, S=Down, D=Right, Q=Quit")
+        println("Use WASD keys to move: W=Up, A=Left, S=Down, D=Right, H=Help(AI Suggestion), Q=Quit")
         println()
-        print("Enter move (W/A/S/D/Q): ")
+        print("Enter move (W/A/S/D/H/Q): ")
     }
 
     override fun showMoveMessage() {
-        print("Enter move (W/A/S/D/Q): ")
+        print("Enter move (W/A/S/D/H/Q): ")
     }
 
     override fun showQuitMessage() {
@@ -44,7 +44,7 @@ class ConsoleGameRenderer(
     }
 
     override fun showInvalidInputMessage() {
-        println("Invalid input! Use W/A/S/D to move or Q to quit.")
+        println("Invalid input! Use W/A/S/D to move or H for help(AI suggestion) or Q to quit.")
     }
 
     override fun showFinalScore() {

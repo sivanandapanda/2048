@@ -5,4 +5,13 @@ enum class MoveDirection {
     DOWN,
     LEFT,
     RIGHT,
+    ;
+
+    override fun toString(): String =
+        when (this) {
+            UP -> "W"
+            DOWN -> "S"
+            LEFT -> "A"
+            RIGHT -> "D"
+        }
 }
