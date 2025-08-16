@@ -1,13 +1,19 @@
 package org.example.ui
 
-import org.example.core.Game2048
-
 interface GameRenderer {
-    fun render(game: Game2048)
+    fun render()
 
     fun showWinningMessage()
 
     fun showGameOverMessage()
 
     fun showWelcomeMessage()
+
+    fun showMoveMessage()
+
+    fun showQuitMessage()
+
+    fun showInvalidInputMessage()
+
+    fun showFinalScore()
 }

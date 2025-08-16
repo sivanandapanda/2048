@@ -9,6 +9,7 @@ plugins {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":utilities"))
     implementation(project(":ui"))
 
     testImplementation(libs.junit.jupiter)
@@ -16,9 +17,13 @@ dependencies {
 }
 
 application {
-    mainClass.set("org.example.app.AppKt")
+    mainClass.set("org.example.AppKt")
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }
