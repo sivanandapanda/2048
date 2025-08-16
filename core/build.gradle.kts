@@ -3,6 +3,8 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":utilities"))
+
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly(libs.junit.jupiter.launcher)
 }

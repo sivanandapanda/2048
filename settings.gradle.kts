@@ -21,3 +21,4 @@ rootProject.name = "2048"
 include("app")
 include("core")
 include("ui")
+include("utilities")

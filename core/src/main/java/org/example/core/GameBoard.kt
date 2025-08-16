@@ -111,4 +111,27 @@ internal class GameBoard(
 
         return Pair(newRow.toTypedArray(), score)
     }
+
+    fun getEmptyTiles(): List<Pair<Int, Int>> {
+        val emptyTiles = mutableListOf<Pair<Int, Int>>()
+        for (row in 0 until size) {
+            for (col in 0 until size) {
+                if (board[row][col] == null) {
+                    emptyTiles.add(Pair(row, col))
+                }
+            }
+        }
+        return emptyTiles
+    }
+
+    fun isEqual(other: Array<Array<Int?>>): Boolean {
+        for (row in 0 until size) {
+            for (col in 0 until size) {
+                if (board[row][col] != other[row][col]) {
+                    return false
+                }
+            }
+        }
+        return true
+    }
 }

@@ -2,6 +2,8 @@ package org.example.core
 
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
@@ -43,12 +45,13 @@ class GameBoardTest {
         fun `should update game board with provided board`() {
             val gameBoard = GameBoard(4)
 
-            val initialBoard = arrayOf(
-                arrayOf<Int?>(null, 8, 2, 2),
-                arrayOf<Int?>(4, 2, null, 2),
-                arrayOf<Int?>(null, null, null, null),
-                arrayOf<Int?>(null, null, null, 2)
-            )
+            val initialBoard =
+                arrayOf(
+                    arrayOf<Int?>(null, 8, 2, 2),
+                    arrayOf<Int?>(4, 2, null, 2),
+                    arrayOf<Int?>(null, null, null, null),
+                    arrayOf<Int?>(null, null, null, 2),
+                )
             gameBoard.updateBoard(initialBoard)
 
             val expected: Array<Array<Int?>> =
@@ -69,11 +72,12 @@ class GameBoardTest {
         fun `should merge left when tiles can be merged`() {
             val gameBoard = GameBoard(3)
 
-            val initialBoard = arrayOf(
-                arrayOf(null, 4, 2),
-                arrayOf(2, null, 2),
-                arrayOf<Int?>(2, 2, 2)
-            )
+            val initialBoard =
+                arrayOf(
+                    arrayOf(null, 4, 2),
+                    arrayOf(2, null, 2),
+                    arrayOf<Int?>(2, 2, 2),
+                )
             gameBoard.updateBoard(initialBoard)
 
             val (mergedBoard, score) = gameBoard.mergeLeft()
@@ -93,11 +97,12 @@ class GameBoardTest {
         fun `should not do anything when no empty tile`() {
             val gameBoard = GameBoard(3)
 
-            val initialBoard = arrayOf(
-                arrayOf<Int?>(16, 4, 2),
-                arrayOf<Int?>(2, 8, 2),
-                arrayOf<Int?>(2, 4, 2)
-            )
+            val initialBoard =
+                arrayOf(
+                    arrayOf<Int?>(16, 4, 2),
+                    arrayOf<Int?>(2, 8, 2),
+                    arrayOf<Int?>(2, 4, 2),
+                )
             gameBoard.updateBoard(initialBoard)
 
             val (mergedBoard, score) = gameBoard.mergeLeft()
@@ -106,7 +111,7 @@ class GameBoardTest {
                 arrayOf(
                     arrayOf<Int?>(16, 4, 2),
                     arrayOf<Int?>(2, 8, 2),
-                    arrayOf<Int?>(2, 4, 2)
+                    arrayOf<Int?>(2, 4, 2),
                 )
 
             assertArrayEquals(expected, mergedBoard)
@@ -120,11 +125,12 @@ class GameBoardTest {
         fun `should merge right when tiles can be merged`() {
             val gameBoard = GameBoard(3)
 
-            val initialBoard = arrayOf(
-                arrayOf(null, 4, 2),
-                arrayOf(2, null, 2),
-                arrayOf<Int?>(2, 2, 2)
-            )
+            val initialBoard =
+                arrayOf(
+                    arrayOf(null, 4, 2),
+                    arrayOf(2, null, 2),
+                    arrayOf<Int?>(2, 2, 2),
+                )
             gameBoard.updateBoard(initialBoard)
 
             val (mergedBoard, score) = gameBoard.mergeRight()
@@ -144,11 +150,12 @@ class GameBoardTest {
         fun `should not do anything when no empty tile`() {
             val gameBoard = GameBoard(3)
 
-            val initialBoard = arrayOf(
-                arrayOf<Int?>(16, 4, 2),
-                arrayOf<Int?>(2, 8, 2),
-                arrayOf<Int?>(2, 4, 2)
-            )
+            val initialBoard =
+                arrayOf(
+                    arrayOf<Int?>(16, 4, 2),
+                    arrayOf<Int?>(2, 8, 2),
+                    arrayOf<Int?>(2, 4, 2),
+                )
             gameBoard.updateBoard(initialBoard)
 
             val (mergedBoard, score) = gameBoard.mergeRight()
@@ -157,7 +164,7 @@ class GameBoardTest {
                 arrayOf(
                     arrayOf<Int?>(16, 4, 2),
                     arrayOf<Int?>(2, 8, 2),
-                    arrayOf<Int?>(2, 4, 2)
+                    arrayOf<Int?>(2, 4, 2),
                 )
 
             assertArrayEquals(expected, mergedBoard)
@@ -171,11 +178,12 @@ class GameBoardTest {
         fun `should merge up when tiles can be merged`() {
             val gameBoard = GameBoard(3)
 
-            val initialBoard = arrayOf(
-                arrayOf(null, 4, 2),
-                arrayOf(2, null, 2),
-                arrayOf<Int?>(2, 2, 2)
-            )
+            val initialBoard =
+                arrayOf(
+                    arrayOf(null, 4, 2),
+                    arrayOf(2, null, 2),
+                    arrayOf<Int?>(2, 2, 2),
+                )
             gameBoard.updateBoard(initialBoard)
 
             val (mergedBoard, score) = gameBoard.mergeUp()
@@ -195,11 +203,12 @@ class GameBoardTest {
         fun `should not do anything when no empty tile`() {
             val gameBoard = GameBoard(3)
 
-            val initialBoard = arrayOf(
-                arrayOf<Int?>(16, 4, 2),
-                arrayOf<Int?>(4, 2, 4),
-                arrayOf<Int?>(2, 4, 2)
-            )
+            val initialBoard =
+                arrayOf(
+                    arrayOf<Int?>(16, 4, 2),
+                    arrayOf<Int?>(4, 2, 4),
+                    arrayOf<Int?>(2, 4, 2),
+                )
             gameBoard.updateBoard(initialBoard)
 
             val (mergedBoard, score) = gameBoard.mergeUp()
@@ -208,7 +217,7 @@ class GameBoardTest {
                 arrayOf(
                     arrayOf<Int?>(16, 4, 2),
                     arrayOf<Int?>(4, 2, 4),
-                    arrayOf<Int?>(2, 4, 2)
+                    arrayOf<Int?>(2, 4, 2),
                 )
 
             assertArrayEquals(expected, mergedBoard)
@@ -222,11 +231,12 @@ class GameBoardTest {
         fun `should merge down when tiles can be merged`() {
             val gameBoard = GameBoard(3)
 
-            val initialBoard = arrayOf(
-                arrayOf(null, 4, 2),
-                arrayOf(2, null, 2),
-                arrayOf<Int?>(2, 2, 2)
-            )
+            val initialBoard =
+                arrayOf(
+                    arrayOf(null, 4, 2),
+                    arrayOf(2, null, 2),
+                    arrayOf<Int?>(2, 2, 2),
+                )
             gameBoard.updateBoard(initialBoard)
 
             val (mergedBoard, score) = gameBoard.mergeDown()
@@ -246,11 +256,12 @@ class GameBoardTest {
         fun `should not do anything when no empty tile`() {
             val gameBoard = GameBoard(3)
 
-            val initialBoard = arrayOf(
-                arrayOf<Int?>(16, 4, 2),
-                arrayOf<Int?>(8, 8, 4),
-                arrayOf<Int?>(2, 4, 2)
-            )
+            val initialBoard =
+                arrayOf(
+                    arrayOf<Int?>(16, 4, 2),
+                    arrayOf<Int?>(8, 8, 4),
+                    arrayOf<Int?>(2, 4, 2),
+                )
             gameBoard.updateBoard(initialBoard)
 
             val (mergedBoard, score) = gameBoard.mergeDown()
@@ -259,7 +270,7 @@ class GameBoardTest {
                 arrayOf(
                     arrayOf<Int?>(16, 4, 2),
                     arrayOf<Int?>(8, 8, 4),
-                    arrayOf<Int?>(2, 4, 2)
+                    arrayOf<Int?>(2, 4, 2),
                 )
 
             assertArrayEquals(expected, mergedBoard)
